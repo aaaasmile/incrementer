@@ -8,8 +8,7 @@ import (
 
 func main() {
 
-	rootDir := `D:\Projects\go-lang\cup-service\cup-service\static\js`
-	filterOnDir := []string{"vue", "local"}
+	rootJs := `D:\Projects\go-lang\cup-service\cup-service\static\js\vue\main.js`
 	dateTagXml := "2022-10-31"
 	parsedDate, err := time.Parse("2006-01-02", dateTagXml)
 	if err != nil {
@@ -17,9 +16,8 @@ func main() {
 	}
 
 	ck := check.Checker{
-		RootDir:     rootDir,
-		FilterOnDir: filterOnDir,
-		TagDate:     parsedDate,
+		RootJs:  rootJs,
+		TagDate: parsedDate,
 	}
 	if err := ck.Process(); err != nil {
 		log.Fatal("Error: ", err)

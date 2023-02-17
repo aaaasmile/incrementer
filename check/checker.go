@@ -9,13 +9,12 @@ import (
 )
 
 type Checker struct {
-	RootDir     string
-	FilterOnDir []string
-	TagDate     time.Time
+	RootJs  string
+	TagDate time.Time
 }
 
 func (ck *Checker) Process() error {
-	log.Printf("Processing root: %s\ntag date: %s\nFilter on: %v", ck.RootDir, ck.TagDate.String(), ck.FilterOnDir)
+	log.Printf("Processing root: %s\ntag date: %s\n", ck.RootJs, ck.TagDate.String())
 	// to add a custom root name use `treeprint.NewWithRoot()` instead
 	tree := treeprint.New()
 
