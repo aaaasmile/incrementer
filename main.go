@@ -3,6 +3,7 @@ package main
 import (
 	"app/check"
 	"log"
+	"strings"
 	"time"
 )
 
@@ -16,7 +17,7 @@ func main() {
 	}
 
 	ck := check.Checker{
-		RootJs:  rootJs,
+		RootJs:  strings.ReplaceAll(rootJs, "\\", "/"),
 		TagDate: parsedDate,
 	}
 	if err := ck.Process(); err != nil {

@@ -3,6 +3,7 @@ package check
 import (
 	"fmt"
 	"log"
+	"path"
 	"time"
 
 	"github.com/xlab/treeprint"
@@ -14,10 +15,12 @@ type Checker struct {
 }
 
 func (ck *Checker) Process() error {
+	rootName := path.Base(ck.RootJs)
 	log.Printf("Processing root: %s\ntag date: %s\n", ck.RootJs, ck.TagDate.String())
 	// to add a custom root name use `treeprint.NewWithRoot()` instead
+	//treeRoot := treeprint.New()
 	tree := treeprint.New()
-
+	tree.AddNode(rootName)
 	// tree.AddNode("Dockerfile")
 	// tree.AddNode("Makefile")
 	// tree.AddNode("aws.sh")
